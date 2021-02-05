@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+
+	<!-- Commentaire HTML -->
+	<body>
+		<!-- Chaque page doit avoir un H1 qui est le titre principal de la page -->
+		<h1>Cours de JS 2020-2021</h1>
+
+		<section id="news">
+			<h2 id="titleNews">News</h2>
+			<article>
+				<h3 class="title">News 1</h3>
+			</article>
+
+			<article>
+				<h3 class="title">News 2</h3>
+			</article>
+
+			<article>
+				<h3 class="title">News 3</h3>
+			</article>
+		</section>
+
+		<button id="btnClic" class="btn">Mon super bouton</button>
+
+		<form id="addNewsForm">
+			Nom de la news : <input id="input_text" name="titleToAdd" type="text"/>
+
+			<input type="submit" name="addNewsBtn" />
+		</form>
+	</body>
+
+	<!-- Le code JS doit se trouver après la clôture de la balise body. -->
+	<script src="../src/couleur.js"></script>
+	<script src="../src/log_message.js"></script>
+	<script>
+
+		for (let i = 0; i < 5; i++)
+		{
+			if (i==0) { logMessage(couleur_vert); }
+			if (i%2 == 0)
+				logMessage(couleur_rouge);
+			else
+				logMessage(couleur_bleu);
+		}
+
+		let h1 = document.querySelector('h1');
+		logMessage(h1);
+
+		let titleNews = document.querySelector('#titleNews');
+		logMessage(titleNews);
+
+		let lis_h3_id_title = document.querySelectorAll('.title');
+		logArray(lis_h3_id_title);
+
+
+		let input_text = document.querySelector('#input_text');
+
+		let input_add_news = document.getElementsByName('addNewsBtn');
+
+		input_add_news.forEach(input => onsubmit = create_news);
+
+		function create_news()
+		{
+			let newArticle = document.createElement('article');
+			let h3 = document.createElement('h3');
+			let news = document.querySelector('#news');
+			h3.innerHTML = input_text.value;
+			logMessage('test');
+			logMessage(input_text.value);
+			newArticle.append(h3);
+			news.append(newArticle);
+		}
+	</script>
+</html>
