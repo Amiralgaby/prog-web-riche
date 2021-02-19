@@ -12,18 +12,24 @@ class Article {
 }
 
 function createArticle(title,description) {
-	let article = new Article("articleUnique",title,description);
+    let idArticle = 'artnews'+(getNumberOfArticle()+1);
+
+	let article = new Article(idArticle,title,description);
     let newArticle = document.createElement('article');
     let h3 = document.createElement('h3');
     let p = document.createElement('p');
     let button = document.createElement('button');
     let news = document.querySelector('#news');
-    h3.innerHTML = title;
-    p.innerHTML = description;
+
+    newArticle.id = article.id;
+    h3.innerHTML = article.title;
+    p.innerHTML = article.desc;
     button.innerHTML = "View detail";
     h3.classList.add('title');
     button.classList.add('articleButton');
+    button.classList.add(idArticle);
     bindButtonArticle(button);
+
     newArticle.append(h3);
     newArticle.append(p);
     newArticle.append(button);
@@ -62,4 +68,9 @@ function addArticle(title,description) {
     }
     
     createArticle(title,description);
+}
+
+function getNumberOfArticle()
+{
+    return document.querySelectorAll('article').length;
 }
