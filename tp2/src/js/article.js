@@ -12,7 +12,7 @@ class Article {
 }
 
 function createArticle(title,description) {
-	let article = new Article("articleUnique",titre,description);
+	let article = new Article("articleUnique",title,description);
     let newArticle = document.createElement('article');
     let h3 = document.createElement('h3');
     let p = document.createElement('p');
@@ -35,13 +35,9 @@ function checkArticleUnicity(title) {
 
     for (let i = 0; i < h3s.length; i++) {
         if (h3s[i].innerHTML.toLowerCase().trim() === title.toLowerCase().trim()) {
-            let error = document.createElement('p');
-            error.innerHTML = "Erreur article deja existant";
-            error.style.color = ROUGE;
-            error.classList.add('error');
-
+            
             let form = document.querySelector('#addNewsForm');
-            form.prepend(error);
+            form.prepend(realiserUnParagrapheErreur());
 
             return false;
         }
@@ -52,12 +48,13 @@ function checkArticleUnicity(title) {
 
 function addArticle(title,description) {
     let errors = document.querySelectorAll('.error');
-    console.log(errors);
     if(errors){
-        while(errors.length > 0){
-        	console.log(errors.length);
+        for (var i = 0; i < errors.length; i++) {
+            if(!errors[0].parentNode)
+                break;
             errors[0].parentNode.removeChild(errors[0]);
-        }        
+            console.log("KILLED");
+        }      
     }
 
     if (!checkArticleUnicity(title)) {
