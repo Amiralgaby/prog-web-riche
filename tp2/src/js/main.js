@@ -10,7 +10,10 @@ binderLesBoutons();
 let inputSubmit = document.getElementsByName('addNewsBtn');
 inputSubmit[0].onclick = function(e)
 {
-	e.preventDefault(); // ne fait rien
+	e.preventDefault();
+	let title = document.getElementsByName('titleToAdd')[0];
+	let desc = document.querySelector('textarea');
+	addArticle(title.value,desc.value);
 }
 
 let articles = JSON.parse(ALLNEWSJSON);
