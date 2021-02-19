@@ -23,6 +23,7 @@ function createArticle(title,description) {
     button.innerHTML = "View detail";
     h3.classList.add('title');
     button.classList.add('articleButton');
+    bindButtonArticle(button);
     newArticle.append(h3);
     newArticle.append(p);
     newArticle.append(button);
@@ -53,7 +54,6 @@ function addArticle(title,description) {
             if(!errors[0].parentNode)
                 break;
             errors[0].parentNode.removeChild(errors[0]);
-            console.log("KILLED");
         }      
     }
 

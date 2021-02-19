@@ -1,6 +1,5 @@
 function binderLesBoutons() {
 	let articleList = obtenirLesBoutonsArticle();
-
 	for (var i = 0; i < articleList.length; i++) {
 		bindButtonArticle(articleList[i]);
 	}
