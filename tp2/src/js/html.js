@@ -1,9 +1,10 @@
 function bindButtonArticle(button){
 	button.onclick = function(e){
 		e.preventDefault();
-		//logMessage(e.srcElement.classList);
-		obtenirArticleDeLaSource(e.srcElement);
-		return false;
+		let art = obtenirArticleDeLaSource(e.srcElement);
+		let p = art.children[1]; // on prend le paragraphe correspond à la description
+		logMessage(p.textContent);
+		return button;
 	}
 }
 
@@ -26,7 +27,7 @@ function obtenirArticleDeLaSource(source)
 	let article;
 	for (var i = 0; i < source.classList.length; i++) {
 		if ( (article = document.querySelector('#'+source.classList[i])) ) { 
-			console.log(article);
+			return article;
 			}
 	}
 }
