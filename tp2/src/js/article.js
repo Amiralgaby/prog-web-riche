@@ -11,10 +11,9 @@ class Article {
 	}
 }
 
-function createArticle(title,description) {
-    let idArticle = 'artnews'+(getNumberOfArticle()+1);
+function createArticle(article) {
+    article.id = (article.id) ? article.id : 'artnews'+(getNumberOfArticle()+1);
 
-	let article = new Article(idArticle,title,description);
     let newArticle = document.createElement('article');
     let h3 = document.createElement('h3');
     let p = document.createElement('p');
@@ -27,7 +26,7 @@ function createArticle(title,description) {
     button.innerHTML = "View detail";
     h3.classList.add('title');
     button.classList.add('articleButton');
-    button.classList.add(idArticle);
+    button.classList.add(article.id);
     bindButtonArticle(button);
 
     newArticle.append(h3);
@@ -53,7 +52,7 @@ function checkArticleUnicity(title) {
     return true;
 }
 
-function addArticle(title,description) {
+function addArticle(article) {
     let errors = document.querySelectorAll('.error');
     if(errors){
         for (var i = 0; i < errors.length; i++) {
@@ -63,11 +62,11 @@ function addArticle(title,description) {
         }      
     }
 
-    if (!checkArticleUnicity(title)) {
+    if (!checkArticleUnicity(article.title)) {
         return;
     }
     
-    createArticle(title,description);
+    createArticle(article);
 }
 
 function getNumberOfArticle()

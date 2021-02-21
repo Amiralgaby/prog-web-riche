@@ -2,6 +2,7 @@ function bindButtonArticle(button){
 	button.onclick = function(e){
 		e.preventDefault();
 		let art = obtenirArticleDeLaSource(e.srcElement);
+		if (!art) { logMessage('Une erreur est survenue : Cause = id button et article différent'); }
 		let p = art.children[1]; // on prend le paragraphe correspond à la description
 		logMessage(p.textContent);
 		return button;

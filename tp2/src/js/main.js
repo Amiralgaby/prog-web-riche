@@ -13,7 +13,8 @@ inputSubmit[0].onclick = function(e)
 	e.preventDefault();
 	let title = document.getElementsByName('titleToAdd')[0];
 	let desc = document.querySelector('textarea');
-	addArticle(title.value,desc.value);
+	let art = new Article("",title,desc);
+	addArticle(art);
 }
 
 let articles = JSON.parse(ALLNEWSJSON);
@@ -22,9 +23,8 @@ let articleList = [];
 articles.forEach( element => articleList.push(new Article(element.id,element.title,element.desc)) );
 logArray(articleList);
 
-
 articleList.forEach(function(article)
 {
 	logMessage(article.title+" "+article.desc);
-	addArticle(article.title,article.desc);
+	addArticle(article);
 });
