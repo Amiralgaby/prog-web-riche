@@ -17,7 +17,7 @@ function obtenirLesBoutonsArticle()
 function realiserUnParagrapheErreur()
 {
 	let newErreurText = document.createElement('p');
-	newErreurText.innerHTML = "[ERREUR] pas de duplication d'article";
+	newErreurText.innerHTML = "[ERREUR] duplication d'article  : ajout échoué";
 	newErreurText.style.color = ROUGE;
 	newErreurText.classList.add('error');
 	return newErreurText;
