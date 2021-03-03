@@ -16,7 +16,7 @@ bindButton(button);
 
 let buttons = $('article button');
 buttons.each(function(element){
-	$( this ).onclick = viewdetailClick;
+	$( this ).click(viewdetailClick);
 });
 
 let articles = jQuery.parseJSON(ALLNEWSJSON);

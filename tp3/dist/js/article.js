@@ -10,17 +10,16 @@ class Article {
     }
 
     createArticleHtml() {
-        let newArticle = document.createElement('article');
-        let h3 = document.createElement('h3');
-        let p = document.createElement('p');
-        let button = document.createElement('button');
-        let news = document.querySelector('#news');
+        let newArticle = $('<article></article>');
+        let h3 = $('<h3></h3>');
+        let p = $('<p></p>');
+        let button = $('<button></button>');
+        let news = $('#news');
 
-        h3.innerHTML = this.title;
-        p.innerHTML = this.description;
-        button.innerHTML = 'View detail';
+        h3.html(this.title).addClass('title');
+        p.html(this.description);
+        button.html('View detail');
         this.bindButtonViewdetail(button, viewdetailClick);
-        h3.classList.add('title');
         newArticle.id = this.id;
 
         newArticle.append(h3);
@@ -30,14 +29,14 @@ class Article {
     }
 
     checkArticleUnicity() {
-        let h3s = document.querySelectorAll('.title');
+        let h3s = $('.title');
 
         for (let i = 0; i < h3s.length; i++) {
             if (h3s[i].innerHTML.toLowerCase().trim() === this.title.toLowerCase().trim()) {
                 addError('Erreur article deja existant', form);
 
                 return false;
-            }  
+            }
         }
 
         return true;
@@ -45,13 +44,13 @@ class Article {
 
     checkValue() {
         if (this.title === '') {
-            let form = document.querySelector('#addNewsForm');
+            let form = $('#addNewsForm');
             addError('Title vide', form);
             return false;
         }
 
         if (this.description === '') {
-            let form = document.querySelector('#addNewsForm');
+            let form = $('#addNewsForm');
             addError('Description vide', form);
             return false;
         }
@@ -75,6 +74,6 @@ class Article {
     }
 
     bindButtonViewdetail(button, callback){
-        button.onclick = callback;
+        button.click(callback);
     }
 }
