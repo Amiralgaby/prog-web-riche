@@ -31,15 +31,20 @@ class Article {
     checkArticleUnicity() {
         let h3s = $('.title');
 
-        for (let i = 0; i < h3s.length; i++) {
-            if (h3s[i].innerHTML.toLowerCase().trim() === this.title.toLowerCase().trim()) {
-                addError('Erreur article deja existant', form);
+        let this_title = this.title.toLowerCase().trim();
 
-                return false;
+        let retval = true;
+        
+        h3s.each(function(index){
+            if ($( this ).html().toLowerCase().trim() === this_title)
+            {
+                let form = $('#addNewsForm');
+                addError('Erreur article déjà existant', form);
+                return retval = false;
             }
-        }
+        });
 
-        return true;
+        return retval;
     }
 
     checkValue() {
