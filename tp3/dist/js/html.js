@@ -25,7 +25,7 @@ function addError(message, parent){
 }
 
 function viewdetailClick(){
-    let p = $( this ).parent().children();
+    let p = $( this ).parent().children('p');
 
-    logMessageWithDate($( p[1] ).html());
+    logMessageWithDate(p.html());
 }
