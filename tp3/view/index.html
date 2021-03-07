@@ -4,11 +4,21 @@
 		<meta charset="utf-8"/>
 		<title>News</title>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<link href="../dist/css/style.css" rel="stylesheet">
 	</head>
 
 	<body>
+		<table>
+			<tr>
+				<td><button class="onglet list_rech">Article & Recherche</button></td>
+				<td><button class="onglet add_art">Ajouter un article</button></td>
+			</tr>
+		</table>
 
 		<h1> TP3 JS </h1>
+
+		<input type="search" id="site-search" name="q" aria-label="Search through site content">
+		<button style="font-family: Calibri">Rechercher</button>
 
 		<section id="news">
 			<h2 id="titleNews"></h2>
@@ -21,13 +31,13 @@
 			<article id="2">
 				<h3 class="title">News 2</h3>
 				<p>Ma super news 2</p>
-				<button>View detail</button>
+				<button class="viewDetail">View detail</button>
 			</article>
 
 			<article id="3">
 				<h3 class="title">News 3</h3>
 				<p>Ma super news 3</p>
-				<button>View detail</button>
+				<button class="viewDetail">View detail</button>
 			</article>
 		</section>
 
