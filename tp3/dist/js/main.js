@@ -78,3 +78,5 @@ $(onglets[1]).click(function() {
 	$( this ).css('color',ROUGE);
 	$( onglets[0] ).css('color','#000000');
 });
+
+$(onglets[0]).click().focus();
