@@ -14,7 +14,8 @@ module.exports = function(grunt) {
     		js: {
 	      		files: {
 				// 'destination' : ['source']
-	        		'dist/js/app.min.js': ['dist/js/app.js']
+	        		'dist/js/app.min.js': ['dist/js/app.js'],
+	        		'dist/js/vue.global.min.js' : ['node_modules/vue/dist/vue.global.js']
 	      		}
 	    	}
 	    },
