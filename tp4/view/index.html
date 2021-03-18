@@ -21,23 +21,11 @@
 		<div class="onglet" id="articlesSearchTab">
 			<section id="news">
 				<h2 id="titleNews"></h2>
-				<article id="1">
-					<h3 class="title">News 1</h3>
-					<p>Ma super news 1</p>
-					<button class="viewDetail">View detail</button>
-				</article>
 
-				<article id="2">
-					<h3 class="title">News 2</h3>
-					<p>Ma super news 2</p>
-					<button>View detail</button>
-				</article>
-
-				<article id="3">
-					<h3 class="title">News 3</h3>
-					<p>Ma super news 3</p>
-					<button>View detail</button>
-				</article>
+				<news v-for="article in arts"
+					  v-bind:article="article"
+					  v-for:key="article.id">
+				</news>
 			</section>
 		</div>
 
