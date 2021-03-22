@@ -23,7 +23,7 @@ let tabs = $('.tab');
 tabs.each(function(){
 	$(this).click(switchTab);
 });
-
+/*
 let articles = JSON.parse(ALLNEWSJSON);
 articles.forEach(function(element){ //on parcours un élément JSON ici donc pas besoin de conversir en JQuery
 	console.log(element);
@@ -31,7 +31,7 @@ articles.forEach(function(element){ //on parcours un élément JSON ici donc pas
 	let a = new Article(element.id, element.title, element.description);
 	a.addArticle();
 });
-/*
+*/
 $.ajax({ 
 	url: "https://newsapi.org/v2/top-headlines?country=fr&apiKey=9b4e42c6404c48cab0f04cb200654d6c",
   	method: "GET",
@@ -63,4 +63,3 @@ $.ajax({
 .fail(function(xhr, textStatus, error) {
 	console.log(xhr.status);
 });
-*/
