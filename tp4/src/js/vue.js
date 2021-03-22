@@ -1,6 +1,6 @@
 const Counter = {
 	data() {
-		let articles = JSON.parse(articlesJson);
+		let articles = JSON.parse(ALLNEWSJSON);
 		return {
 			arts: articles
 		};
